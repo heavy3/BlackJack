@@ -17,13 +17,12 @@ using namespace std;
 class Card {
 public:
     Card();
-    Card(string name, string suit);
-    Card(string name, int suit);
     Card(int nameValue, int suit);
+    int getValue() {return value; }
     virtual ~Card() {}
     void print();
 private:
-    int value;              //1-10 is number value, j q and k are 10 ace is 1 or 11 (not sure how to implement yet)
+    int value;              //1-10 is number value, j=11, q=12, k=13, ace=14 - BlackJack Value calculated in game
     string name;            //
     int suite;              //0=Spades 1=Clubs 2=Hearts 3=Diamonds
     string suit;           //Spades Clubs Hearts Diamonds
