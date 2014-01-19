@@ -10,5 +10,18 @@
 #define __BlackJack__BlackJackHand__
 
 #include <iostream>
+#include "CardHand.h"
+#include "Deck.h"
+#include "Card.h"
+
+class BlackJackHand: public CardHand {
+public:
+    ~BlackJackHand() { }
+    BlackJackHand(Card *first, Card *second);
+private:
+    Card* cardone;
+    Card* cardtwo;
+    int totalValue;
+};
 
 #endif /* defined(__BlackJack__BlackJackHand__) */

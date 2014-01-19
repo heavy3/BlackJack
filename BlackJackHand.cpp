@@ -7,3 +7,8 @@
 //
 
 #include "BlackJackHand.h"
+
+BlackJackHand::BlackJackHand(Card* first, Card* second) {
+    cardone = first;
+    cardtwo = second;
+}
