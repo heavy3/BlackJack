@@ -25,16 +25,7 @@ void Deck::printDeck() {
 
 void Deck::fillDeck() {
     Card* newCard;
-    for (int i=2; i <11; i++) {
-        for (int j=0; j < 4; j ++) {
-            stringstream ss;
-            ss << i;
-            string str = ss.str();
-            newCard = new Card(str, j);
-            carddeck.push(newCard);
-        }
-    }
-    for (int i=11; i <15; i++) {
+    for (int i=2; i <15; i++) {
         for (int j=0; j < 4; j ++) {
             newCard = new Card(i, j);
             carddeck.push(newCard);
