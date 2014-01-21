@@ -10,5 +10,16 @@
 #define __BlackJack__Dealer__
 
 #include <iostream>
+#include "BlackJackHand.h"
+
+class Dealer {
+public:
+    Dealer();
+    void makeMove();
+    void dealHand(BlackJackHand* newhand);
+private:
+    BlackJackHand* hand;
+    
+};
 
 #endif /* defined(__BlackJack__Dealer__) */

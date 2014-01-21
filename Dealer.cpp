@@ -7,3 +7,20 @@
 //
 
 #include "Dealer.h"
+#include "BlackJackHand.h"
+
+Dealer::Dealer() {
+}
+
+void Dealer::dealHand(BlackJackHand * newhand) {
+    hand = newhand;
+}
+
+void Dealer::makeMove() {
+    if (hand->getValue() < 17) {
+        //hit
+    }
+    else {
+        //stay
+    }
+}
