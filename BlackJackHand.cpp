@@ -7,8 +7,17 @@
 //
 
 #include "BlackJackHand.h"
+#include <vector>
 
 BlackJackHand::BlackJackHand(Card* first, Card* second) {
-    cardone = first;
-    cardtwo = second;
+    cards = *new vector<Card*>();
+    cards.push_back(first);
+    cards.push_back(second);
+    numCards = 2;
+    
+}
+
+void BlackJackHand::add(Card* newCard) {
+    numCards++;
+    cards.push_back(newCard);
 }

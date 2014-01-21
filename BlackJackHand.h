@@ -13,14 +13,17 @@
 #include "CardHand.h"
 #include "Deck.h"
 #include "Card.h"
+#include <vector>
 
 class BlackJackHand: public CardHand {
 public:
     ~BlackJackHand() { }
     BlackJackHand(Card *first, Card *second);
+    void add(Card *newCard);
+    int getValue() {return totalValue;}
 private:
-    Card* cardone;
-    Card* cardtwo;
+    vector<Card*> cards;
+    int numCards;
     int totalValue;
 };
 
