@@ -26,6 +26,8 @@ public:
     int calcAceValue();
     bool canAdd();
     bool willStay() { return stay; }
+    void printCardsValue();
+    void printStatus();
 private:
     vector<Card*> cards;
     int numCards;

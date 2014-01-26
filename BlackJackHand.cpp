@@ -43,6 +43,7 @@ void BlackJackHand::add(Card* newCard) {
 
 void BlackJackHand::calcValue() {
     int tempValue=0;
+    totalValue=0;
     for (int i=0; i <numCards; i++) {
         tempValue = cards[i]->getValue();
         if (tempValue <=10) {
@@ -70,7 +71,18 @@ void BlackJackHand::calcValue() {
 
 int BlackJackHand::calcAceValue() {
     int tempValue;
-    if (isSoft == NULL || isSoft) {
+    if (isSoft == NULL) {
+        tempValue = 11+totalValue;
+        if (tempValue <= 21) {
+            isSoft = true;
+            return 11;
+        }
+        else {
+            isSoft = false;
+            return 1;
+        }
+    }
+    else if (isSoft) {
         tempValue = 11+totalValue;
         if (tempValue <= 21) {
             isSoft = true;
@@ -87,9 +99,28 @@ int BlackJackHand::calcAceValue() {
     }
 }
 
+void BlackJackHand::printStatus() {
+    if (is21) {
+        std::cout << "BlackJack" << std::endl;
+    }
+    else if(isBust) {
+        std::cout << "Busted!" << std::endl;
+    }
+    else {
+        std::cout << "You're Good" << std::endl;
+    }
+}
+
 bool BlackJackHand::canAdd() {
     if (is21 || isBust) {
         return false;
     }
     return true;
+}
+
+void BlackJackHand::printCardsValue() {
+    for (int i =0; i < numCards; i++) {
+        cards[i]->print();
+    }
+    std::cout << totalValue << std::endl;
 }
