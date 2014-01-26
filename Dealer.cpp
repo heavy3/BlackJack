@@ -14,13 +14,14 @@ Dealer::Dealer() {
 
 void Dealer::dealHand(BlackJackHand * newhand) {
     hand = newhand;
+    stay = false;
 }
 
-void Dealer::makeMove() {
+bool Dealer::hitOrStay() {
     if (hand->getValue() < 17) {
-        //hit
+        return true;
     }
     else {
-        //stay
+        return false;
     }
 }

@@ -15,11 +15,10 @@
 class Dealer {
 public:
     Dealer();
-    void makeMove();
     void dealHand(BlackJackHand* newhand);
+    bool hitOrStay(); //true hit, false stay
 private:
     BlackJackHand* hand;
-    
 };
 
 #endif /* defined(__BlackJack__Dealer__) */
