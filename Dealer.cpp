@@ -14,7 +14,10 @@ Dealer::Dealer() {
 
 void Dealer::dealHand(BlackJackHand * newhand) {
     hand = newhand;
-    stay = false;
+}
+
+void Dealer::add(Card *card) {
+    hand->add(card);
 }
 
 bool Dealer::hitOrStay() {

@@ -11,12 +11,15 @@
 
 #include <iostream>
 #include "BlackJackHand.h"
+#include "Card.h"
 
 class Dealer {
 public:
     Dealer();
     void dealHand(BlackJackHand* newhand);
+    void add(Card* card);
     bool hitOrStay(); //true hit, false stay
+    int getValue() {return hand->getValue(); }
 private:
     BlackJackHand* hand;
 };
