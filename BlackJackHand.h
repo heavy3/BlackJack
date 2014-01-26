@@ -18,13 +18,22 @@
 class BlackJackHand: public CardHand {
 public:
     ~BlackJackHand() { }
-    BlackJackHand(Card *first, Card *second);
+    BlackJackHand();
+    BlackJackHand(Card *first); //hand starts with one card you will get two, but not right in a row
     void add(Card *newCard);
+    void calcValue();
     int getValue() {return totalValue;}
+    int calcAceValue();
+    bool canAdd();
+    bool willStay() { return stay; }
 private:
     vector<Card*> cards;
     int numCards;
     int totalValue;
+    bool isBust;
+    bool is21;
+    bool stay;
+    bool isSoft;
 };
 
 #endif /* defined(__BlackJack__BlackJackHand__) */
