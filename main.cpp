@@ -11,7 +11,20 @@
 #include "Deck.h"
 #include "Card.h"
 #include "BlackJackHand.h"
+#include "Dealer.h"
 #include <ctype.h>
+
+void dealerPlay(Deck* deck, BlackJackHand* hand) {
+    Dealer* dealer = new Dealer();
+    dealer->dealHand(hand);
+    while (dealer->hitOrStay()) {
+        hand->printCardsValue();
+        std::cout << "hit" << std::endl;
+        dealer->add(deck->draw());
+    }
+    hand->printCardsValue();
+    hand->printStatus();
+}
 
 int main(int argc, const char * argv[])
 {
@@ -19,13 +32,24 @@ int main(int argc, const char * argv[])
     cardDeck.fillDeck();
     cardDeck.shuffle();
     
-    bool quit = true;
-    bool handIsGood = true;
-    while (quit) {
-        while (handIsGood) {
-            
+    bool deal = true;
+    char continu;
+    
+    while (deal) {
+        BlackJackHand hand = *new BlackJackHand();
+        hand.add(cardDeck.draw());
+        hand.add(cardDeck.draw());
+        dealerPlay(&cardDeck, &hand);
+        std::cout << std::endl << "Deal (Y/N): ";
+        cin >> continu;
+        continu = toupper(continu);
+        
+        if (continu == 'Y') {
+            deal = true;
+        }
+        else {
+            deal=false;
         }
     }
-    
 }
 
